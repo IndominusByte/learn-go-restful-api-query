@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  learn-go-restful-api-db-query-development:
+    container_name: ${DB_QUERY_CONTAINER}
+    hostname: ${DB_QUERY_HOST}
+    image: "${DB_QUERY_IMAGE}:${DB_QUERY_IMAGE_TAG}"
+    environment:
+      BACKEND_STAGE: ${BACKEND_STAGE}
+    networks:
+      - learn-go-restful-api-environment-development
+    volumes:
+      - ../:/app
+
+networks:
+  learn-go-restful-api-environment-development:
+    external: true
+    name: learn-go-restful-api-environment-development
